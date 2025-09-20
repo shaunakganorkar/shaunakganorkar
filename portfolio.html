@@ -1,0 +1,352 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <!-- ========== Meta Basics ========== -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Shaunak Ganorkar — Portfolio</title>
+  <meta name="description" content="Cybersecurity professional building CVEs, CTFs, and AI-powered compliance tools. Portfolio, projects, speaking, and contact." />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='0.9em' font-size='90'%3E🛡️%3C/text%3E%3C/svg%3E">
+
+  <!-- Open Graph / Twitter -->
+  <meta property="og:title" content="Shaunak Ganorkar — Portfolio" />
+  <meta property="og:description" content="Cybersecurity professional building CVEs, CTFs, and AI-powered compliance tools." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://cybermaya.in/assets/images/Post-0.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- ========== Fonts ========== -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- ========== Base Styles (no build tools) ========== -->
+  <style>
+    :root {
+      /* Light theme palette */
+      --bg: #f7f9fb;        /* page background */
+      --surface: #ffffff;   /* cards/header surface */
+      --text: #0f1720;      /* primary text */
+      --muted: #5b6b7b;     /* muted slate */
+      --brand: #2e7d32;     /* lush grass green (darker) */
+      --brand-2: #66bb6a;   /* moss green accent */
+      --ring: rgba(46,125,50,0.25);
+      --border: #e5e9ef;
+    }
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      margin: 0;
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+    }
+    a { color: var(--brand); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .container { max-width: 1100px; margin: 0 auto; padding: 24px; }
+    header {
+      display: grid; grid-template-columns: 1fr auto; gap: 16px; align-items: center; padding: 16px 0 8px;
+      position: sticky; top: 0; backdrop-filter: blur(8px);
+      background: var(--surface); border-bottom: 1px solid var(--border); z-index: 20;
+    }
+    .brand { display: flex; gap: 14px; align-items: center; }
+    .logo { width: 42px; height: 42px; display: grid; place-items: center; background: var(--surface); border: 1px solid var(--border); border-radius: 12px; box-shadow: 0 8px 30px rgba(0,0,0,0.05) inset; }
+    .title { line-height: 1.1; margin: 0; font-size: 20px; font-weight: 700; }
+    .subtitle { margin: 2px 0 0; font-size: 13px; color: var(--muted); }
+    nav a { margin-left: 16px; padding: 10px 12px; border-radius: 10px; }
+    nav a:hover { background: var(--surface); text-decoration: none; }
+
+    /* ========== Hero ========== */
+    .hero { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 28px; align-items: center; padding: 42px 0 18px; }
+    .hero h1 { font-size: clamp(28px, 3.6vw, 44px); margin: 0 0 10px; letter-spacing: -0.02em; }
+    .hero p { color: var(--muted); font-size: 16px; line-height: 1.6; }
+    .cta { margin-top: 18px; display: flex; gap: 12px; flex-wrap: wrap; }
+    .btn { display: inline-flex; align-items: center; gap: 8px; padding: 12px 16px; border-radius: 12px; border: 1px solid var(--border); background: var(--surface); color: var(--text); font-weight: 600; }
+    .btn.primary { background: linear-gradient(180deg, var(--brand), var(--brand-2)); border-color: #048a73; color: #fff; }
+    .btn:hover { filter: brightness(1.05); text-decoration: none; }
+
+    /* ========== Sections / Cards ========== */
+    section { padding: 26px 0; }
+    .section-title { font-size: 18px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); margin: 0 0 14px; }
+    .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .card { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 18px; transition: transform .15s ease, box-shadow .15s ease; }
+    .card:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(0,0,0,0.08); }
+    .card h3 { margin: 4px 0 6px; font-size: 18px; }
+    .card p { margin: 0; color: var(--muted); font-size: 14px; }
+    .pill { display: inline-block; padding: 4px 8px; border: 1px solid var(--border); border-radius: 999px; font-size: 12px; color: var(--muted); margin: 6px 6px 0 0; }
+
+    /* ========== Timeline ========== */
+    .timeline { border-left: 2px solid var(--border); margin-left: 10px; padding-left: 18px; }
+    .titem { margin: 14px 0; }
+    .titem h4 { margin: 0; font-size: 16px; }
+    .titem small { color: var(--muted); }
+
+    /* ========== Footer ========== */
+    footer { margin: 30px 0 16px; padding-top: 18px; border-top: 1px solid var(--border); color: var(--muted); font-size: 14px; }
+
+    /* ========== Responsive ========== */
+    @media (max-width: 900px) {
+      .hero { grid-template-columns: 1fr; }
+      .grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <!-- ========== Header ========== -->
+  <header>
+    <div class="container" style="display:grid;grid-template-columns:1fr auto;gap:12px;align-items:center">
+      <div class="brand">
+        <div class="logo"> <img src="https://cybermaya.in/assets/images/Post-0.png" alt="Shaunak Ganorkar" style="width: 42px; height: 42px;"></div>
+        <div>
+          <h1 class="title">Shaunak Ganorkar</h1>
+          <p class="subtitle">Cybersecurity • CVEs • CTFs • AI-Compliance</p>
+        </div>
+      </div>
+      <nav>
+        <a href="#projects">Projects</a>
+        <a href="#experience">Experience</a>
+        <a href="#talks">Talks</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ========== Hero ========== -->
+  <main class="container">
+    <section class="hero">
+      <div>
+        <h1>
+          Building secure systems & communities — from firmware CVEs to nationwide CTF programs.
+        </h1>
+        <p>
+          I’m Shaunak — curious, hands-on, and always searching for the why behind the what in cybersecurity. I build communities and products that make security practical and accessible, from malware research to large-scale CTFs, and from ISO programs to AI-assisted compliance. At heart, I want to leave things better than I found them — teams, platforms, and the next generation of infosec professionals.
+        </p>
+        <div class="cta">
+          <a class="btn primary" href="https://github.com/YOUR-USERNAME" target="_blank" rel="noopener">GitHub</a>
+          <a class="btn" href="/Shaunak-Ganorkar-Resume.pdf">Download Résumé</a>
+          <a class="btn" href="#contact">Get in touch</a>
+        </div>
+      </div>
+      <div class="card" style="display:grid;gap:10px">
+        <div>
+          <strong>Focus</strong>
+          <div>
+            <span class="pill">Privacy & Digital Trust</span>
+            <span class="pill">Firmware & IoT</span>
+            <span class="pill">AI + Compliance</span>
+            <span class="pill">CTF Programs</span>
+          </div>
+        </div>
+        <div>
+          <strong>Currently</strong>
+          <p>Co-writing a book on GenAIOps • Auditing ISO 27001 • Building Auditify.one</p>
+        </div>
+        <div>
+          <strong>Highlights</strong>
+          <ul style="margin:6px 0 0 18px; color:var(--muted)">
+            <li>CVE-2025-45784 — D-Link DPH-400S/SE</li>
+            <li>CVE-2025-52363 — Tenda CP3 Pro (passwd hash exposure)</li>
+            <li>CVE-2025-52364 — Tenda CP3 Pro (telnetd enabled)</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== Projects ========== -->
+    <!-- ===== SECTION BREAK: Projects ===== -->
+    <section id="projects">
+      <h2 class="section-title">Featured Projects</h2>
+      <div class="grid">
+        <article class="card">
+          <h3>Auditify.one</h3>
+          <p>AI-assisted ISO 27001 audits with clause-aware document generation and progress analytics.</p>
+          <div>
+            <span class="pill">Next.js</span><span class="pill">OpenAI</span><span class="pill">ISO 27001</span>
+          </div>
+          <p style="margin-top:10px"><a href="https://join.auditify.one/" target="_blank" rel="noopener">Visit Auditify.one →</a></p>
+        </article>
+        <article class="card">
+          <h3>CyberMaya</h3>
+          <p>Narrative-driven cybersecurity blog blending Indian philosophy with threat analysis.</p>
+          <div>
+            <span class="pill">Writing</span><span class="pill">Threat Intel</span><span class="pill">Privacy</span>
+          </div>
+          <p style="margin-top:10px"><a href="https://www.cybermaya.in" target="_blank" rel="noopener">Visit site →</a></p>
+        </article>
+        <article class="card">
+          <h3>Firmware CVE Research</h3>
+          <p>Static/emu analysis for IoT devices; responsible disclosure and write-ups.</p>
+          <div>
+            <span class="pill">Binwalk</span><span class="pill">QEMU</span><span class="pill">CWE Mapping</span>
+          </div>
+          <p style="margin-top:10px"><a href="#research">Read notes →</a></p>
+        </article>
+        <article class="card">
+          <h3>CTF Evaluation Framework</h3>
+          <p>Experiment to evaluate CTF challenge quality and learning outcomes.</p>
+          <div>
+            <span class="pill">CTF</span><span class="pill">Pedagogy</span>
+          </div>
+          <p style="margin-top:10px"><a href="https://cybermaya.in/posts/Post-38/" target="_blank" rel="noopener">Read notes →</a></p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ========== Research ========== -->
+    <!-- ===== SECTION BREAK: Research ===== -->
+    <section id="research">
+      <h2 class="section-title">Research, Publications & Patents</h2>
+      <div class="grid">
+        <article class="card">
+          <h3>CVE-2025-55581</h3>
+          <p>Persistent root-level access via insecure watchdog handling in embedded firmware, allowing attackers to maintain privileged access even after reboots.</p>
+          <p style="margin-top:8px">
+            <a href="https://www.cve.org/CVERecord?id=CVE-2025-55581" target="_blank" rel="noopener" class="pill">CVE.org</a>
+            <a href="https://cybermaya.in/posts/Post-42/" target="_blank" rel="noopener" class="pill">Write-up</a>
+          </p>
+        </article>
+        <article class="card">
+          <h3>CVE-2025-55582</h3>
+          <p>Insecure file permissions enabling local privilege escalation to root from lower-privileged users.</p>
+          <p style="margin-top:8px">
+            <a href="https://www.cve.org/CVERecord?id=CVE-2025-55582" target="_blank" rel="noopener" class="pill">CVE.org</a>
+            <a href="https://cybermaya.in/posts/Post-43/" target="_blank" rel="noopener" class="pill">Write-up</a>
+          </p>
+        </article>
+        <article class="card">
+          <h3>CVE-2025-55583</h3>
+          <p>Critical unauthenticated command injection vulnerability permitting remote root compromise without credentials.</p>
+          <p style="margin-top:8px">
+            <a href="https://www.cve.org/CVERecord?id=CVE-2025-55583" target="_blank" rel="noopener" class="pill">CVE.org</a>
+            <a href="https://cybermaya.in/posts/Post-42/" target="_blank" rel="noopener" class="pill">Write-up</a>
+          </p>
+        </article>
+        <article class="card">
+          <h3>CVE-2025-45784</h3>
+          <p>Hardcoded password logging in D-Link DPH-400S/SE firmware exposing sensitive credentials.</p>
+          <p style="margin-top:8px">
+            <a href="https://www.cve.org/CVERecord?id=CVE-2025-45784" target="_blank" rel="noopener" class="pill">CVE.org</a>
+            <a href="https://cybermaya.in/posts/Post-37/" target="_blank" rel="noopener" class="pill">Write-up</a>
+          </p>
+        </article>
+        <article class="card">
+          <h3>CVE-2025-52363</h3>
+          <p>Hardcoded root password in Tenda CP3 Pro firmware, enabling attackers to bypass authentication entirely.</p>
+          <p style="margin-top:8px">
+            <a href="https://www.cve.org/CVERecord?id=CVE-2025-52363" target="_blank" rel="noopener" class="pill">CVE.org</a>
+            <a href="https://cybermaya.in/posts/Post-39/" target="_blank" rel="noopener" class="pill">Write-up</a>
+          </p>
+        </article>
+        <article class="card">
+          <h3>CVE-2025-52364</h3>
+          <p>Insecure Telnet startup via <code>eth.sh</code> in Tenda CP3 Pro firmware, exposing an unencrypted root shell on port 23.</p>
+          <p style="margin-top:8px">
+            <a href="https://www.cve.org/CVERecord?id=CVE-2025-52364" target="_blank" rel="noopener" class="pill">CVE.org</a>
+            <a href="https://cybermaya.in/posts/Post-40/" target="_blank" rel="noopener" class="pill">Write-up</a>
+          </p>
+        </article>
+      </div>
+
+      <div class="grid" style="margin-top:16px">
+        <article class="card">
+          <h3>Patent (Application #201941042219)</h3>
+          <p>System & Method for DNS Data Analysis (Indian Patent Office). Application published 23 Apr 2021; status: deemed withdrawn u/s 11b(4).</p>
+        </article>
+        <article class="card">
+          <h3>ORCID Publications</h3>
+          <p>Selected: ransomware defenses; shallow vs deep nets for ransomware; 3DES integrity on cloud storage.</p>
+          <p style="margin-top:8px"><a href="https://orcid.org/0000-0002-7189-7500" target="_blank" rel="noopener">ORCID profile →</a></p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ===== SECTION BREAK: Experience ===== -->
+    <section id="experience">
+      <h2 class="section-title">Experience</h2>
+      <div class="timeline">
+        <div class="titem">
+          <h4>Head — Sales & Business Development · Traboda CyberLabs Pvt. Ltd.</h4>
+          <small>Feb 2025 — Present • Bengaluru, IN</small>
+          <p style="color:var(--muted)">Enterprise CTF programs, university partnerships, product strategy, and large-scale deployments.</p>
+        </div>
+        <div class="titem">
+          <h4>Management Consultant · Accenture Strategy & Consulting</h4>
+          <small>Sept 2024 — Feb 2025 • Bengaluru, IN</small>
+          <p style="color:var(--muted)">Cybersecurity solutions strategy, stakeholder alignment, and delivery planning.</p>
+        </div>
+        <div class="titem">
+          <h4>Senior Pre-sales Engineer · Payatu Security Consulting</h4>
+          <small>Oct 2021 — Aug 2024 • Pune, IN</small>
+          <p style="color:var(--muted)">Solution demos, proposals, and enablement across offensive and defensive portfolios.</p>
+        </div>
+        <div class="titem">
+          <h4>Pre-sales Architect / Strategic Account Associate / Associate Security Analyst · Zacco Cybersecurity</h4>
+          <small>Jan 2017 — Sept 2021 • Pune, IN</small>
+          <p style="color:var(--muted)">Malware analysis, threat hunting, breach investigations; later account strategy and pre-sales.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== Talks ========== -->
+    <!-- ===== SECTION BREAK: Talks ===== -->
+    <section id="talks">
+      <h2 class="section-title">Talks & Workshops</h2>
+      <div class="grid">
+        <article class="card">
+          <h3>Designing Skill-first CTF Programs</h3>
+          <p>Structuring challenge libraries for measurable upskilling and hiring.</p>
+        </article>
+        <article class="card">
+          <h3>Firmware 101 → CVE</h3>
+          <p>From unpacking to PoC and disclosure for beginners.</p>
+        </article>
+        <article class="card">
+          <h3>AI + Compliance</h3>
+          <p>Practical ways to embed AI into ISO audits without losing rigor.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ========== Education ========== -->
+    <!-- ===== SECTION BREAK: Education ===== -->
+    <section id="education">
+      <h2 class="section-title">Education</h2>
+      <div class="grid">
+        <article class="card">
+          <h3>Master’s — Cyber Security Systems & Networks</h3>
+          <p>Amrita Vishwa Vidyapeetham (Amritapuri Campus), 2015–2017.</p>
+        </article>
+        <article class="card">
+          <h3>Bachelor’s — Computer Science & Engineering</h3>
+          <p>P.R. Patil College of Engineering & Technology, 2010–2014.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ========== Contact ========== -->
+    <!-- ===== SECTION BREAK: Contact ===== -->
+    <section id="contact">
+      <h2 class="section-title">Contact</h2>
+      <div class="card">
+        <p>Email: <a href="mailto:hello@ganorkar.com">hello@ganorkar.com</a></p>
+        <p>LinkedIn: <a href="https://www.linkedin.com/in/shaunak-ganorkar/" target="_blank" rel="noopener">/in/shaunak-ganorkar</a></p>
+        <p>GitHub: <a href="https://github.com/YOUR-USERNAME" target="_blank" rel="noopener">@YOUR-USERNAME</a></p>
+        <p style="color:var(--muted);font-size:14px;margin-top:8px">Tip: Replace YOUR-USERNAME and links above. Drop a PDF résumé in the repo root named <code>Shaunak-Ganorkar-Resume.pdf</code> to make the button work.</p>
+      </div>
+    </section>
+
+    <!-- ========== Footer ========== -->
+    <footer>
+      <div class="container" style="display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap">
+        <span>© <span id="year"></span> Shaunak Ganorkar</span>
+        <span>Built with GitHub Pages</span>
+      </div>
+    </footer>
+  </main>
+
+  <!-- ========== Tiny JS ========== -->
+  <script>
+    // year stamp
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
