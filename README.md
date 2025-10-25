@@ -36,5 +36,3 @@ This project is open source under the [CC BY-NC 4.0](LICENSE).
 Feel free to use the structure as a starter for your own GitHub Pages portfolio.
 
 ---
-
-👋 Questions or ideas? Reach out at [hello@ganorkar.com](mailto:hello@ganorkar.com).
